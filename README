@@ -1,0 +1,27 @@
+= JSEmoji
+Author:: Yuichi Takeuchi <mizincogrammer@gmail.com>
+Website:: http://takeyu-web.com/
+Copyright:: Copyright 2010 Yuichi Takeuchi
+License:: GPL v2
+
+TypeCastの絵文字表記（[E:絵文字名]）をJavaScriptを使ってimgタグに書き換えるプラグインです。
+インストールするだけで利用できます。
+（再構築時に自動的に絵文字変換スクリプトがHTML中に埋め込まれます。）
+（現在のところ絵文字入力パレットなどを表示する機能はありません。）
+
+== 特徴
+* ブラウザ上でimgタグへの変換を行う為、テンプレート等への変更が不要
+* インストールして再構築を行うだけで利用可能で非常に手軽です
+* JavaScriptで置換を行う為、閲覧者のマシンスペックによっては表示が重くなったり、JavaScriptが無効の場合は絵文字表示ができなかったりします
+
+== インストール
+* mt-static/plugins/JSEmoji
+* plugins/JSEmoji
+を、それぞれ配置して、システムのプラグイン一覧に表示されることを確認して下さい。
+
+あとは再構築すれば、ブラウザで表示される際に [E:happy01] が <img class="emoticon happy01" src="/path-to-mt-static/plugins/JSEmoji/images/emoticons/happy01.gif" /> に置換されます。
+
+== 絵文字画像について
+同梱の絵文字画像はSixApart社が公開しているデータを、GPLに基づいて再配布するものです。
+
+配布元：http://start.typepad.jp/typecast/
