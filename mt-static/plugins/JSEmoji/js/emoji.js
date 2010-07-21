@@ -8,6 +8,7 @@
 function E2Emoji(p, baseURL){
     for(var i=0,n;n=p.childNodes[i];++i) {
 	if(n.nodeName=="#text") {
+	    if(n.nodeValue.match(/^\s+$/)) continue;
 	    var span = document.createElement('span');
 	    span.innerHTML = n.nodeValue.replace(/\[E:([\w\-]{0,16})\]/g, function(all, name) {
 		return '<img class="emoticon '+name+'" src="'+baseURL+name+'.gif" />';
