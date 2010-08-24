@@ -11,7 +11,7 @@ use base qw( MT::Plugin );
 
 use vars qw($PLUGIN_NAME $VERSION);
 $PLUGIN_NAME = 'JSEmoji';
-$VERSION = '0.1.0';
+$VERSION = '0.1.1';
 
 use MT;
 use MT::ConfigMgr;
