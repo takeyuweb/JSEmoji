@@ -11,7 +11,7 @@ use base qw( MT::Plugin );
 
 use vars qw($PLUGIN_NAME $VERSION);
 $PLUGIN_NAME = 'JSEmoji';
-$VERSION = '0.1.1';
+$VERSION = '0.1.2';
 
 use MT;
 use MT::ConfigMgr;
@@ -42,8 +42,8 @@ sub appendScriptTag {
 
     my $cfg = MT::ConfigMgr->instance;
 
-    my $src_path = $cfg->StaticWebPath.'plugins/JSEmoji/js/emoji.js';
-    my $emoticons_path = $cfg->StaticWebPath.'plugins/JSEmoji/images/emoticons/';
+    my $src_path = $cfg->StaticWebPath.'/plugins/JSEmoji/js/emoji.js';
+    my $emoticons_path = $cfg->StaticWebPath.'/plugins/JSEmoji/images/emoticons/';
 
     my $script_tag = <<"TAG";
 <script type="text/javascript" charset="utf-8" src="$src_path"></script>
