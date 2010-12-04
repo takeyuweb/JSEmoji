@@ -11,7 +11,7 @@ use base qw( MT::Plugin );
 
 use vars qw($PLUGIN_NAME $VERSION);
 $PLUGIN_NAME = 'JSEmoji';
-$VERSION = '0.1.2';
+$VERSION = '0.2.0';
 
 use MT;
 use MT::ConfigMgr;
@@ -21,7 +21,7 @@ my $plugin = MT::Plugin::JSEmoji->new({
     key => __PACKAGE__,
     name => $PLUGIN_NAME,
     version => $VERSION,
-    description => "[E:名前]形式の絵文字表記をJavaScriptを使ってimgタグに変換します。",
+    description => "[E:名前]形式の絵文字表記をJavaScriptを使ってimgタグに変換します。また、コメントフォームに絵文字パレットを付加し、TypeCast形式による絵文字入力を可能にします。",
     doc_link => '',
     author_name => 'Yuichi Takeuchi',
     author_link => 'http://takeyu-web.com/',
@@ -42,12 +42,13 @@ sub appendScriptTag {
 
     my $cfg = MT::ConfigMgr->instance;
 
-    my $src_path = $cfg->StaticWebPath.'/plugins/JSEmoji/js/emoji.js';
-    my $emoticons_path = $cfg->StaticWebPath.'/plugins/JSEmoji/images/emoticons/';
+    my $src_path = $cfg->StaticWebPath.'plugins/JSEmoji/js/emoji.js';
+    my $emoticons_path = $cfg->StaticWebPath.'plugins/JSEmoji/images/emoticons/';
 
     my $script_tag = <<"TAG";
 <script type="text/javascript" charset="utf-8" src="$src_path"></script>
 <script type="text/javascript">E2Emoji(document.body, '$emoticons_path');</script>
+<script type="text/javascript">AttachEmojiPallet('comment-text', '$emoticons_path');</script>
 TAG
 
     $$ref_str =~ s!</body>!$script_tag</body>!i;
