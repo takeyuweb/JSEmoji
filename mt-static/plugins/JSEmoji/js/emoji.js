@@ -24,6 +24,7 @@ function E2Emoji(p, baseURL){
 // コメント入力欄に絵文字パレットを追加
 function AttachEmojiPallet(fieldId, baseURL) {
 	var commentField = document.getElementById(fieldId);
+	if (commentField == null) return;
 	var newElem = document.createElement("div");
 	html = '';
 	for (var i=0; i<emojiList.length; i++) {
